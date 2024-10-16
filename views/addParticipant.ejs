@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Participant</title>
+</head>
+<body>
+    <h1>Add Participant</h1>
+    <form action="/participants/add" method="POST">
+        <h2>Participant</h2>
+        Email: <input type="email" name="email" required><br>
+        First Name: <input type="text" name="firstname" required><br>
+        Last Name: <input type="text" name="lastname" required><br>
+        DOB: <input type="date" name="dob" required><br>
+
+        <h2>Work Details</h2>
+        Company Name: <input type="text" name="work[companyname]" required><br>
+        Salary: <input type="number" name="work[salary]" required><br>
+        Currency: <input type="text" name="work[currency]" required><br>
+
+        <h2>Home Details</h2>
+        Country: <input type="text" name="home[country]" required><br>
+        City: <input type="text" name="home[city]" required><br>
+
+        <button type="submit">Add Participant</button>
+    </form>
+</body>
+</html>
