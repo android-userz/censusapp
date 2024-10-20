@@ -14,7 +14,26 @@ router.use(authenticate);
  */
 router.post('/add', participantValidationRules(), validate, async (req, res) => {
     try {
-        const participant = req.body;
+        const { email, firstname, lastname, dob, work, home } = req.body; // Destructure work and home from req.body
+        
+        // Create a new participant object with the necessary structure
+        const participant = {
+            email,
+            firstname,
+            lastname,
+            dob,
+            work: {
+                companyname: work.companyname,
+                salary: work.salary,
+                currency: work.currency,
+            },
+            home: {
+                country: home.country,
+                city: home.city,
+            },
+        };
+
+        // Add the participant to the database
         await Participant.addParticipant(participant);
         res.status(201).json({ message: 'Participant added successfully.' });
     } catch (error) {

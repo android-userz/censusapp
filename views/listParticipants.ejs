@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Participants List</title>
+</head>
+<body>
+    <h1>Participants List</h1>
+    <ul>
+    <% participants.forEach(function(participant) { %>
+        <li><%= participant.firstname %> <%= participant.lastname %> - <%= participant.email %></li>
+    <% }); %>
+    </ul>
+</body>
+</html>
